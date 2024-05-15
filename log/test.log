@@ -1,0 +1,799 @@
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "custom_attributes"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "custom_attributes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "value" varchar, "attributable_id" integer, "attributable_type" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240514064611)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2024-05-14 08:13:15.082151"], ["updated_at", "2024-05-14 08:13:15.082151"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "fd0f9bcabff932ba95b73ae83e53e31d3b703375"], ["created_at", "2024-05-14 08:13:15.085735"], ["updated_at", "2024-05-14 08:13:15.085735"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "custom_attributes"[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "custom_attributes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "value" varchar, "attributable_id" integer, "attributable_type" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "customers"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "customers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240514084856)[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20240514064611);
+
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2024-05-14 08:49:18.523915"], ["updated_at", "2024-05-14 08:49:18.523915"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "170b51e6e8c24deb5d5b42be0b4494d7e7a51767"], ["created_at", "2024-05-14 08:49:18.528180"], ["updated_at", "2024-05-14 08:49:18.528180"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:49:18.596239"], ["updated_at", "2024-05-14 08:49:18.596239"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:49:18.611597"], ["updated_at", "2024-05-14 08:49:18.611597"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:49:18.629707"], ["updated_at", "2024-05-14 08:49:18.629707"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:49:18.648702"], ["updated_at", "2024-05-14 08:49:18.648702"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:49:18.668877"], ["updated_at", "2024-05-14 08:49:18.668877"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomer Create (1.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:52:14.206875"], ["updated_at", "2024-05-14 08:52:14.206875"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.3ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "Customer"], ["created_at", "2024-05-14 08:52:14.253947"], ["updated_at", "2024-05-14 08:52:14.253947"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:52:14.256807"], ["updated_at", "2024-05-14 08:52:14.256807"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"], ["name", "phone"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:52:14.259218"], ["updated_at", "2024-05-14 08:52:14.259218"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "Customer"], ["created_at", "2024-05-14 08:52:14.261622"], ["updated_at", "2024-05-14 08:52:14.261622"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:52:14.264880"], ["updated_at", "2024-05-14 08:52:14.264880"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "Customer"], ["created_at", "2024-05-14 08:52:14.267019"], ["updated_at", "2024-05-14 08:52:14.267019"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Destroy (0.2ms)[0m  [1m[31mDELETE FROM "custom_attributes" WHERE "custom_attributes"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:52:14.271322"], ["updated_at", "2024-05-14 08:52:14.271322"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "Customer"], ["created_at", "2024-05-14 08:52:14.274319"], ["updated_at", "2024-05-14 08:52:14.274319"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Update (0.1ms)[0m  [1m[33mUPDATE "custom_attributes" SET "value" = ?, "updated_at" = ? WHERE "custom_attributes"."id" = ?[0m  [["value", "updated@example.com"], ["updated_at", "2024-05-14 08:52:14.276036"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "Customer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:54:58.052111"], ["updated_at", "2024-05-14 08:54:58.052111"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "phone"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:54:58.071361"], ["updated_at", "2024-05-14 08:54:58.071361"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.2ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 08:54:58.083059"], ["updated_at", "2024-05-14 08:54:58.083059"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Update (0.1ms)[0m  [1m[33mUPDATE "custom_attributes" SET "value" = ?, "updated_at" = ? WHERE "custom_attributes"."id" = ?[0m  [["value", "updated@example.com"], ["updated_at", "2024-05-14 08:54:58.085746"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:54:58.090016"], ["updated_at", "2024-05-14 08:54:58.090016"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 08:54:58.092095"], ["updated_at", "2024-05-14 08:54:58.092095"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:54:58.095077"], ["updated_at", "2024-05-14 08:54:58.095077"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 08:54:58.097265"], ["updated_at", "2024-05-14 08:54:58.097265"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Destroy (0.1ms)[0m  [1m[31mDELETE FROM "custom_attributes" WHERE "custom_attributes"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:54:58.101979"], ["updated_at", "2024-05-14 08:54:58.101979"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 08:54:58.105323"], ["updated_at", "2024-05-14 08:54:58.105323"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (1.1ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:59:29.788206"], ["updated_at", "2024-05-14 08:59:29.788206"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 08:59:29.815891"], ["updated_at", "2024-05-14 08:59:29.815891"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Update (0.1ms)[0m  [1m[33mUPDATE "custom_attributes" SET "value" = ?, "updated_at" = ? WHERE "custom_attributes"."id" = ?[0m  [["value", "updated@example.com"], ["updated_at", "2024-05-14 08:59:29.817686"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:59:29.821131"], ["updated_at", "2024-05-14 08:59:29.821131"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "phone"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+CustomAttributesConcernTest: test_concern_inclusion
+---------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:59:29.824947"], ["updated_at", "2024-05-14 08:59:29.824947"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:59:29.830984"], ["updated_at", "2024-05-14 08:59:29.830984"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.2ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 08:59:29.833626"], ["updated_at", "2024-05-14 08:59:29.833626"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Destroy (0.1ms)[0m  [1m[31mDELETE FROM "custom_attributes" WHERE "custom_attributes"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:59:29.839319"], ["updated_at", "2024-05-14 08:59:29.839319"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 08:59:29.841348"], ["updated_at", "2024-05-14 08:59:29.841348"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:59:29.846185"], ["updated_at", "2024-05-14 08:59:29.846185"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 08:59:29.848986"], ["updated_at", "2024-05-14 08:59:29.848986"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_association_with_custom_attributes
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.8ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 08:59:29.851699"], ["updated_at", "2024-05-14 08:59:29.851699"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.7ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:11.792781"], ["updated_at", "2024-05-14 09:00:11.792781"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:00:11.820695"], ["updated_at", "2024-05-14 09:00:11.820695"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Update (0.1ms)[0m  [1m[33mUPDATE "custom_attributes" SET "value" = ?, "updated_at" = ? WHERE "custom_attributes"."id" = ?[0m  [["value", "updated@example.com"], ["updated_at", "2024-05-14 09:00:11.822637"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:11.826064"], ["updated_at", "2024-05-14 09:00:11.826064"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:00:11.827969"], ["updated_at", "2024-05-14 09:00:11.827969"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Destroy (0.1ms)[0m  [1m[31mDELETE FROM "custom_attributes" WHERE "custom_attributes"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:11.831547"], ["updated_at", "2024-05-14 09:00:11.831547"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:00:11.833834"], ["updated_at", "2024-05-14 09:00:11.833834"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:11.837332"], ["updated_at", "2024-05-14 09:00:11.837332"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:00:11.840295"], ["updated_at", "2024-05-14 09:00:11.840295"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_association_with_custom_attributes
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:11.842582"], ["updated_at", "2024-05-14 09:00:11.842582"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+CustomAttributesConcernTest: test_concern_inclusion
+---------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:11.848274"], ["updated_at", "2024-05-14 09:00:11.848274"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:11.856267"], ["updated_at", "2024-05-14 09:00:11.856267"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "phone"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:48.152241"], ["updated_at", "2024-05-14 09:00:48.152241"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:00:48.180348"], ["updated_at", "2024-05-14 09:00:48.180348"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Update (0.1ms)[0m  [1m[33mUPDATE "custom_attributes" SET "value" = ?, "updated_at" = ? WHERE "custom_attributes"."id" = ?[0m  [["value", "updated@example.com"], ["updated_at", "2024-05-14 09:00:48.182121"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+CustomAttributesConcernTest: test_concern_inclusion
+---------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:48.185286"], ["updated_at", "2024-05-14 09:00:48.185286"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_association_with_custom_attributes
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:48.187174"], ["updated_at", "2024-05-14 09:00:48.187174"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:48.188997"], ["updated_at", "2024-05-14 09:00:48.188997"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:00:48.191434"], ["updated_at", "2024-05-14 09:00:48.191434"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Destroy (0.1ms)[0m  [1m[31mDELETE FROM "custom_attributes" WHERE "custom_attributes"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.2ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:48.198658"], ["updated_at", "2024-05-14 09:00:48.198658"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:00:48.202422"], ["updated_at", "2024-05-14 09:00:48.202422"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:48.205708"], ["updated_at", "2024-05-14 09:00:48.205708"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "phone"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:00:48.208875"], ["updated_at", "2024-05-14 09:00:48.208875"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.2ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:00:48.212728"], ["updated_at", "2024-05-14 09:00:48.212728"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:37:56.530682"], ["updated_at", "2024-05-14 09:37:56.530682"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:37:56.561606"], ["updated_at", "2024-05-14 09:37:56.561606"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:37:56.565272"], ["updated_at", "2024-05-14 09:37:56.565272"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:37:56.567226"], ["updated_at", "2024-05-14 09:37:56.567226"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Update (0.1ms)[0m  [1m[33mUPDATE "custom_attributes" SET "value" = ?, "updated_at" = ? WHERE "custom_attributes"."id" = ?[0m  [["value", "updated@example.com"], ["updated_at", "2024-05-14 09:37:56.568465"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:37:56.570630"], ["updated_at", "2024-05-14 09:37:56.570630"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.2ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:37:56.573230"], ["updated_at", "2024-05-14 09:37:56.573230"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Destroy (0.1ms)[0m  [1m[31mDELETE FROM "custom_attributes" WHERE "custom_attributes"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.2ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+CustomAttributesConcernTest: test_concern_inclusion
+---------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:37:56.581966"], ["updated_at", "2024-05-14 09:37:56.581966"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:37:56.584661"], ["updated_at", "2024-05-14 09:37:56.584661"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.2ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-14 09:37:56.587453"], ["updated_at", "2024-05-14 09:37:56.587453"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (2.0ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:37:56.592729"], ["updated_at", "2024-05-14 09:37:56.592729"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "phone"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_association_with_custom_attributes
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-14 09:37:56.598873"], ["updated_at", "2024-05-14 09:37:56.598873"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_value
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (1.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-15 11:48:13.626715"], ["updated_at", "2024-05-15 11:48:13.626715"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.6ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.2ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-15 11:48:13.669317"], ["updated_at", "2024-05-15 11:48:13.669317"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_creates_new_attribute
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-15 11:48:13.673149"], ["updated_at", "2024-05-15 11:48:13.673149"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-15 11:48:13.675653"], ["updated_at", "2024-05-15 11:48:13.675653"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_set_custom_attribute_updates_existing_attribute_value
+---------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-15 11:48:13.678810"], ["updated_at", "2024-05-15 11:48:13.678810"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-15 11:48:13.681224"], ["updated_at", "2024-05-15 11:48:13.681224"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Update (0.1ms)[0m  [1m[33mUPDATE "custom_attributes" SET "value" = ?, "updated_at" = ? WHERE "custom_attributes"."id" = ?[0m  [["value", "updated@example.com"], ["updated_at", "2024-05-15 11:48:13.682636"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------------------------
+CustomAttributesConcernTest: test_get_custom_attribute_returns_nil_for_non_existent_attribute
+---------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-15 11:48:13.686265"], ["updated_at", "2024-05-15 11:48:13.686265"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "phone"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+CustomAttributesConcernTest: test_delete_custom_attribute_removes_attribute
+---------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.9ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-15 11:48:13.690146"], ["updated_at", "2024-05-15 11:48:13.690146"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Create (0.1ms)[0m  [1m[32mINSERT INTO "custom_attributes" ("name", "value", "attributable_id", "attributable_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "email"], ["value", "test@example.com"], ["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["created_at", "2024-05-15 11:48:13.693564"], ["updated_at", "2024-05-15 11:48:13.693564"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.0ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ? AND "custom_attributes"."name" = ? LIMIT ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"], ["name", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Destroy (0.1ms)[0m  [1m[31mDELETE FROM "custom_attributes" WHERE "custom_attributes"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCustomAttribute Load (0.1ms)[0m  [1m[34mSELECT "custom_attributes".* FROM "custom_attributes" WHERE "custom_attributes"."attributable_id" = ? AND "custom_attributes"."attributable_type" = ?[0m  [["attributable_id", 1], ["attributable_type", "DummyCustomer"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+CustomAttributesConcernTest: test_concern_inclusion
+---------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-15 11:48:13.697986"], ["updated_at", "2024-05-15 11:48:13.697986"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+CustomAttributesConcernTest: test_association_with_custom_attributes
+--------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDummyCustomer Create (0.3ms)[0m  [1m[32mINSERT INTO "customers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Test Customer"], ["created_at", "2024-05-15 11:48:13.700151"], ["updated_at", "2024-05-15 11:48:13.700151"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
